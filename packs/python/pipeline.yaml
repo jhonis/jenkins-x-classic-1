@@ -5,9 +5,11 @@ agent:
 pipelines:
   pullRequest:
     build:
-      steps:            
-      - sh: pytest --cov
-        name: python-unit-test    
+      steps:                  
+      - sh:  pytest --cov=tests
+        name: python-unit-test
+      - sh:  coveralls
+        name: pubish-coverage-to-coveralls
   release:
     setVersion:
       steps:
@@ -24,5 +26,3 @@ pipelines:
         name: python-unit-test
       - sh:  coveralls
         name: pubish-coverage-to-coveralls
-      - sh: jx step stash --classifier tests -p "target/test-reports/*"
-        name: stash-test-results
