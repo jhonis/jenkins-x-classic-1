@@ -10,8 +10,8 @@ pipelines:
         name: python-unit-test
       - sh:  coveralls
         name: pubish-coverage-to-coveralls
-      - sh: run-sonnar-scanner
-        name: sonar-scanner
+      - sh: sonar-scanner
+        name: run-sonnar-scanner
   release:
     setVersion:
       steps:
@@ -28,5 +28,5 @@ pipelines:
         name: python-unit-test
       - sh:  coveralls
         name: pubish-coverage-to-coveralls
-      - sh: run-sonnar-scanner
-        name: sonar-scanner
+      - sh: sonar-scanner
+        name: run-sonnar-scanner
