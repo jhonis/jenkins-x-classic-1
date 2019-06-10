@@ -1,7 +1,7 @@
 extends:
   file: ../pipeline.yaml
 agent:
-  image: denispalnitskyaurea/pythonextended
+  image: denispalnitskyaurea/python-builder-sonar
 pipelines:
   pullRequest:
     build:
@@ -10,6 +10,8 @@ pipelines:
         name: python-unit-test
       - sh:  coveralls
         name: pubish-coverage-to-coveralls
+      - sh: run-sonnar-scanner
+        name: sonar-scanner
   release:
     setVersion:
       steps:
@@ -26,3 +28,5 @@ pipelines:
         name: python-unit-test
       - sh:  coveralls
         name: pubish-coverage-to-coveralls
+      - sh: run-sonnar-scanner
+        name: sonar-scanner
