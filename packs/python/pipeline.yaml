@@ -22,7 +22,7 @@ pipelines:
 
     build:
       steps:                  
-      - sh:  pytest --junitxml=pytest-report.xml
+      - sh:  pytest
         name: python-unit-test
       # - sh: coverage run --branch
       #  name: run-coverage
