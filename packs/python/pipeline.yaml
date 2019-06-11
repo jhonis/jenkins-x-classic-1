@@ -8,8 +8,6 @@ pipelines:
       steps:                  
       - sh:  pytest --cov=tests
         name: python-unit-test
-      - sh:  coveralls
-        name: pubish-coverage-to-coveralls
       - sh: sonar-scanner
         name: run-sonnar-scanner
   release:
@@ -26,7 +24,5 @@ pipelines:
       steps:                  
       - sh:  pytest --cov=tests
         name: python-unit-test
-      - sh:  coveralls
-        name: pubish-coverage-to-coveralls
       - sh: sonar-scanner
         name: run-sonnar-scanner
