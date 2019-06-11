@@ -24,8 +24,8 @@ pipelines:
       steps:                  
       - sh:  pytest --junitxml=pytest-report.xml
         name: python-unit-test
-      - sh: coverage run --branch
-        name: run-coverage
+      # - sh: coverage run --branch
+      #  name: run-coverage
       #- sh: coverage xml -i
       #  name: output-coverage
       - sh: sonar-scanner --Dsonar.python.xunit.reportPath=pytest-report.xml
