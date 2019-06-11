@@ -6,7 +6,7 @@ pipelines:
   pullRequest:
     build:
       steps:                  
-      - sh:  pytest --cov=tests
+      - sh:  pytest --junitxml=pytest-report.xml
         name: python-unit-test
       - sh: sonar-scanner
         name: run-sonnar-scanner
@@ -22,7 +22,11 @@ pipelines:
 
     build:
       steps:                  
-      - sh:  pytest --cov=tests
+      - sh:  pytest --junitxml=pytest-report.xml
         name: python-unit-test
+      - sh: coverage run --branch
+        name: run-coverage
+      - sh: coverage xml -i
+        name: output-coverage
       - sh: sonar-scanner
         name: run-sonnar-scanner
