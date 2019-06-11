@@ -28,5 +28,5 @@ pipelines:
         name: run-coverage
       - sh: coverage xml -i
         name: output-coverage
-      - sh: sonar-scanner
-        name: run-sonnar-scanner
+      - sh: sonar-scanner --Dsonar.python.xunit.reportPath=pytest-report.xml
+        name: run-sonnar-scanner 
