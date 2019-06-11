@@ -11,6 +11,10 @@ pipelines:
         when: "!prow"
       - sh: jx step git credentials
         when: "!prow"
+    build:
+      steps:
+      - sh: docker run --rm --name=gitleaks -v $(pwd):/code/repo/ zricethezav/gitleaks -v --repo-path=/code/repo
+        name: gitleaks
   post:
     steps:
     - groovy: always
