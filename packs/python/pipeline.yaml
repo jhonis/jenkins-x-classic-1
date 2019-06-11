@@ -1,7 +1,7 @@
 extends:
   file: ../pipeline.yaml
 agent:
-  image: denispalnitskyaurea/python-builder-sonar
+  image: denispalnitskyaurea/python-builder-sonar:v2
 pipelines:
   pullRequest:
     build:
