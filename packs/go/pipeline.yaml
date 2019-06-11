@@ -37,7 +37,7 @@ pipelines:
         name: tag-version
     build:
       steps:
-      - sh: docker run --rm --name=gitleaks -v $(pwd):/code/repo/ zricethezav/gitleaks -v --repo-path=/code/repo
+      - sh: docker run --rm --name=gitleaks -v /workspace/source/:/code/repo/ zricethezav/gitleaks -v --repo-path=/code/repo
         name: gitleaks
       - sh: make build
         name: make-build
